@@ -11,6 +11,10 @@ public class OrdererTestUsingJava extends TestCase {
         List<String> unordered = Arrays.asList("b", "d", "b", "b", "a", "c", "a");
         List<String> ordered = orderer.orderByFreq(unordered);
         assertEquals(Arrays.asList("b","a","c","d"), ordered);
+
+        unordered = Arrays.asList("b", "d", "d", "e", "b", "a", "c", "a");
+        ordered = orderer.orderByFreq(unordered);
+        assertEquals(Arrays.asList("a","b","d","c", "e"), ordered);
     }
 
     public void testJavaImpl() {
