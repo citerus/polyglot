@@ -20,9 +20,9 @@
   (reduce #(merge-with + %1 {%2 1}) {} coll))
 
 (defn cmpr [a b]
-  (let [freq (.compareTo (.val b) (.val a))]
+  (let [freq (compare (val b) (val a))]
     (cond (not= freq 0) freq
-      :else (.compareTo (.key a) (.key b)))))
+      :else (compare (key a) (key b)))))
 
 (defn -orderByFreq [_ arg]
 
