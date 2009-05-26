@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 
 import java.util.List;
 import java.util.Arrays;
+import java.util.ArrayList;
 
 public class OrdererTestUsingJava extends TestCase {
 
@@ -15,6 +16,11 @@ public class OrdererTestUsingJava extends TestCase {
         unordered = Arrays.asList("b", "d", "d", "e", "b", "a", "c", "a");
         ordered = orderer.orderByFreq(unordered);
         assertEquals(Arrays.asList("a","b","d","c", "e"), ordered);
+
+        unordered = new ArrayList<String>();
+        ordered = orderer.orderByFreq(unordered);
+        assertTrue(unordered.isEmpty());
+        assertEquals(new ArrayList<String>(), ordered);
     }
 
     public void testJavaImpl() {

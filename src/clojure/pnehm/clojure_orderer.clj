@@ -15,17 +15,16 @@
 (defn -init []
   [[] (atom [])])
 
+(defn count-words
+  [coll]
+  (reduce #(merge-with + %1 {%2 1}) {} coll))
+
+(defn cmpr [a b]
+  (let [freq (.compareTo (.val b) (.val a))]
+    (cond (not= freq 0) freq
+      :else (.compareTo (.key a) (.key b)))))
 
 (defn -orderByFreq [_ arg]
 
-  (let [bag (HashBag. arg)
-        out (ArrayList. (.uniqueSet bag))
-        cpr (proxy [Comparator] []
-      (compare [a b]
-        (let [freq (.compareTo (Integer/valueOf (.getCount bag b)) (.getCount bag a))]
-          (cond (not= freq 0) freq
-            :else (.compareTo a b)))))]
-
-    (do
-      (Collections/sort out, cpr)
-      out)))
+  (map #(key %) (sort cmpr
+    (count-words arg))))
