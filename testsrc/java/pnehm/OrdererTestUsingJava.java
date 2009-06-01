@@ -2,9 +2,7 @@ package pnehm;
 
 import junit.framework.TestCase;
 
-import java.util.List;
-import java.util.Arrays;
-import java.util.ArrayList;
+import java.util.*;
 
 public class OrdererTestUsingJava extends TestCase {
 
@@ -20,7 +18,7 @@ public class OrdererTestUsingJava extends TestCase {
         unordered = new ArrayList<String>();
         ordered = orderer.orderByFreq(unordered);
         assertTrue(unordered.isEmpty());
-        assertEquals(new ArrayList<String>(), ordered);
+        assertTrue(ordered.isEmpty());
     }
 
     public void testJavaImpl() {
