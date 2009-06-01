@@ -1,16 +1,9 @@
 (ns pnehm.clojure-orderer
   (:gen-class
     :name pnehm.ClojureOrderer
-    :state state
     :init init
     :implements [pnehm.Orderer]
-    )
-  (:import [org.apache.commons.collections Bag]
-    [org.apache.commons.collections.bag HashBag]
-    [java.util List]
-    [java.util Comparator]
-    [java.util Collections]
-    [java.util ArrayList]))
+    ))
 
 (defn -init []
   [[] (atom [])])
@@ -28,3 +21,5 @@
 
   (map #(key %) (sort cmpr
     (count-words arg))))
+
+;(println (-orderByFreq :a ["b", "d", "b", "b", "a", "c", "a"]))
