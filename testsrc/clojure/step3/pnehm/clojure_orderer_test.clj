@@ -1,5 +1,5 @@
 (ns step3.pnehm.clojure-orderer-test
-  (:use pnehm.clojure-orderer clojure.contrib.test-is))
+  (:use step3.pnehm.clojure-orderer clojure.contrib.test-is))
 
 (deftest test-order-by-freq-1
   (is (= ["b","a","c","d"] (-orderByFreq :a ["b", "d", "b", "b", "a", "c", "a"]))))
