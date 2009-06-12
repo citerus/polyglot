@@ -1,4 +1,4 @@
-(ns pnehm.clojure-orderer-test
+(ns step3.pnehm.clojure-orderer-test
   (:use pnehm.clojure-orderer clojure.contrib.test-is))
 
 (deftest test-order-by-freq-1

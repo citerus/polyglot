@@ -1,6 +1,6 @@
-(ns pnehm.clojure-orderer
+(ns step3.pnehm.clojure-orderer
   (:gen-class
-    :name pnehm.ClojureOrderer
+    :name step3.pnehm.ClojureOrderer
     :init init
     :implements [pnehm.Orderer]
     ))
