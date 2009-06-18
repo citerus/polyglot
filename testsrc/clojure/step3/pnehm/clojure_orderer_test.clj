@@ -9,3 +9,5 @@
 
 (deftest test-order-by-freq-empty-list
   (is (empty? (-orderByFreq :a []))))
+
+(run-tests 'step3.pnehm.clojure-orderer-test)
