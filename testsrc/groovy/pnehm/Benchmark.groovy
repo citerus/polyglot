@@ -1,8 +1,11 @@
 import pnehm.JavaOrderer
 import pnehm.GroovyOrderer
+import step3.pnehm.ClojureOrderer
 
 jo = new JavaOrderer()
 go = new GroovyOrderer()
+co = new ClojureOrderer()
+
 
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 random = new Random()
@@ -22,6 +25,7 @@ def benchmark = { o ->
 // Warmup
 benchmark(jo)
 benchmark(go)
+benchmark(co)
 
 t1 = System.currentTimeMillis()
 benchmark(jo)
@@ -29,4 +33,8 @@ println "Time Java: ${System.currentTimeMillis() - t1}"
 
 t2 = System.currentTimeMillis()
 benchmark(go)
-println "Time Groovy: ${System.currentTimeMillis() - t1}"
+println "Time Groovy: ${System.currentTimeMillis() - t2}"
+
+t3 = System.currentTimeMillis()
+benchmark(co)
+println "Time Clojure: ${System.currentTimeMillis() - t3}"
