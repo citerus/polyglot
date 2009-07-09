@@ -1,13 +1,8 @@
 (ns step3.pnehm.clojure-orderer
   (:gen-class
     :name step3.pnehm.ClojureOrderer
-    :init init
     :implements [pnehm.Orderer]
     ))
-
-(defn -init []
-  [[] (atom [])])
-
 
 (defn count-words [coll]
   (reduce #(merge-with + %1 {%2 1}) {} coll))
