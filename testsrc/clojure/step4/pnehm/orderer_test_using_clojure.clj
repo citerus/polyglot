@@ -1,4 +1,4 @@
-(ns step4.pnehm.clojure-orderer-test
+(ns step4.pnehm.orderer-test-using-clojure
   (:use step4.pnehm.clojure-orderer clojure.contrib.test-is))
 
 (deftest test-order-by-freq-1
@@ -10,4 +10,4 @@
 (deftest test-order-by-freq-empty-list
   (is (empty? (order-by-freq []))))
 
-(run-tests 'step4.pnehm.clojure-orderer-test)
+(run-tests 'step4.pnehm.orderer-test-using-clojure)
