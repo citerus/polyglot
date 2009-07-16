@@ -33,5 +33,9 @@ public class OrdererTestUsingJava extends TestCase {
         doTestOrderByFreq(new GroovyOrderer());
     }
 
+    public void testScalaImpl() {
+        doTestOrderByFreq(new ScalaOrderer());
+    }
+
 }
 
