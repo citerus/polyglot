@@ -18,8 +18,8 @@
         cmpr (proxy [Comparator] []
       (compare [a b]
         (let [freq (.compareTo (.getCount bag b) (.getCount bag a))]
-          (if (not= freq 0) freq (.compareTo a b)))))]
+          (if-not (zero? freq) freq (.compareTo a b)))))]
 
     (do
       (Collections/sort out, cmpr)
-      out)))
+        out)))
