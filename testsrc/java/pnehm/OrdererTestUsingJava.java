@@ -29,6 +29,10 @@ public class OrdererTestUsingJava extends TestCase {
         doTestOrderByFreq(new step3.pnehm.ClojureOrderer());
     }
 
+    public void testClojureImpl2() {
+        doTestOrderByFreq(new withcontrib.pnehm.ClojureOrderer());
+    }
+
     public void testGroovyImpl() {
         doTestOrderByFreq(new GroovyOrderer());
     }
