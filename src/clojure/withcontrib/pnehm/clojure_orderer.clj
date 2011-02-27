@@ -3,7 +3,6 @@
     :name withcontrib.pnehm.ClojureOrderer
     :implements [pnehm.Orderer]
     )
-  (:use clojure.contrib.seq-utils)
   )
 
 (defn cmpr [[val1 freq1] [val2 freq2]]
