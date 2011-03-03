@@ -14,10 +14,9 @@
 (defn pfrequency-map [coll]
   (let [l (count coll)
         partitioned-coll (partition-all (quot l cores) coll)
-        fs (for [part partitioned-coll] (future (frequencies part)))]
+        parts (pmap frequencies partitioned-coll)]
     (sort cmpr
-      (apply merge-with +
-        (for [f fs] @f)))))
+      (apply merge-with + parts))))
 
 (defn -orderByFreq [_ coll]
   (if (empty? coll) () (keys (pfrequency-map coll))))
