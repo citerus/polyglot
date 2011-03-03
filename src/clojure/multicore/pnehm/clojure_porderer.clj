@@ -12,9 +12,7 @@
     (if-not (zero? freq) freq (compare val1 val2))))
 
 (defn pfrequency-map [coll]
-  (let [partitioned-coll (-> (count coll)
-    (quot cores)
-    (partition-all coll))
+  (let [partitioned-coll (-> (count coll) (quot cores) (partition-all coll))
         parts (pmap frequencies partitioned-coll)]
     (sort cmpr
       (apply merge-with + parts))))
