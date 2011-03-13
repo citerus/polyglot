@@ -5,15 +5,22 @@
 
 (def cores (.. Runtime getRuntime availableProcessors))
 
+(defn vec-part [n coll]
+  (let [size-ix (- (count coll) 1)]
+    (loop [result [] i 0]
+      (if (>= i size-ix)
+        result
+        (recur (conj result (subvec coll i (+ i n))) (+ i n))))))
+
 (defn cmpr [[val1 freq1] [val2 freq2]]
   (let [freq (compare freq2 freq1)]
     (if-not (zero? freq) freq (compare val1 val2))))
 
 (defn pfrequency-map [coll]
-  (let [partitioned-coll (time (doall (-> (count coll) (quot (+ 1 cores)) (partition-all coll))))
+  (let [partitioned-coll (time (doall (-> (count coll) (quot cores) (vec-part coll))))
         parts (time (doall (pmap frequencies partitioned-coll)))]
-    (sort cmpr
-      (apply merge-with + parts))))
+    (time (sort cmpr
+      (apply merge-with + parts)))))
 
 (defn -orderByFreq [_ coll]
   (if (empty? coll) () (keys (pfrequency-map coll))))

@@ -30,16 +30,16 @@ public class OrdererTestUsingJava extends TestCase {
     }
 
     public void testClojureImpl2() {
-        doTestOrderByFreq(new withcontrib.pnehm.ClojureOrderer());
+        doTestOrderByFreq(new multicore.pnehm.ClojureOrderer());
     }
 
     public void testGroovyImpl() {
         doTestOrderByFreq(new GroovyOrderer());
     }
 
-    public void testScalaImpl() {
-        doTestOrderByFreq(new ScalaOrderer());
-    }
+//    public void testScalaImpl() {
+//        doTestOrderByFreq(new ScalaOrderer());
+//    }
 
 }
 

@@ -1,6 +1,6 @@
 import pnehm.JavaOrderer
 import pnehm.GroovyOrderer
-import pnehm.ScalaOrderer
+//import pnehm.ScalaOrderer
 
 jo = new JavaOrderer()
 go = new GroovyOrderer()
@@ -8,7 +8,7 @@ co1 = new step3.pnehm.ClojureOrderer()
 co2 = new withcontrib.pnehm.ClojureOrderer()
 co3 = new multicore.pnehm.ClojureOrderer()
 
-so = new ScalaOrderer()
+//so = new ScalaOrderer()
 
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 random = new Random()
@@ -20,7 +20,7 @@ unordered = []
 }
 
 def benchmark = { o ->
-    10.times {
+    1.times {
         o.orderByFreq(new ArrayList(unordered))
     }
 }
@@ -31,7 +31,7 @@ benchmark(go)
 benchmark(co1)
 benchmark(co2)
 benchmark(co3)
-benchmark(so)
+//benchmark(so)
 
 t1 = System.currentTimeMillis()
 benchmark(jo)
@@ -49,9 +49,9 @@ t4 = System.currentTimeMillis()
 benchmark(co2)
 println "Time Clojure (with 'frequencies'): ${System.currentTimeMillis() - t4}"
 
-t5 = System.currentTimeMillis()
-benchmark(so)
-println "Time Scala: ${System.currentTimeMillis() - t5}"
+//t5 = System.currentTimeMillis()
+//benchmark(so)
+//println "Time Scala: ${System.currentTimeMillis() - t5}"
 
 t6 = System.currentTimeMillis()
 benchmark(co3)
