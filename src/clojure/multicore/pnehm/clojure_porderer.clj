@@ -24,10 +24,10 @@
     (if-not (zero? freq) freq (compare val1 val2))))
 
 (defn pfrequency-map [coll]
-  (let [partitioned-coll (time (doall (vec-part (part-size coll) coll)))
-        parts (time (doall (pmap frequencies partitioned-coll)))]
-    (time (sort cmpr
-      (apply merge-with + parts)))))
+  (let [partitioned-coll (vec-part (part-size coll) coll)
+        parts (pmap frequencies partitioned-coll)]
+    (sort cmpr
+      (apply merge-with + parts))))
 
 (defn -orderByFreq [_ coll]
   (if (empty? coll) () (keys (pfrequency-map (vec coll)))))
