@@ -2,6 +2,8 @@
 
 Example code supporting [Citerus blog](http://www.citerus.se/blogg/) articles about the differences and similarities between Java and other languages. 
 
+* [From Java to Clojure](http://www.citerus.se/from-java-to-clojure/)
+
 ## Dependencies
 
 ### Base dependencies
